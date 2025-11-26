@@ -11,9 +11,9 @@ class User
         User();
         virtual ~User();
 
-        string Getusername() { return username; }
+        string Getusername() const { return username; }
         void Setusername(string val) { username = val; }
-        string Getpassword() { return password; }
+        string Getpassword() const { return password; }
         void Setpassword(string val) { password = val; }
         // Interactive factory: prompts the user and returns a new User
         static User CreateAccount();
