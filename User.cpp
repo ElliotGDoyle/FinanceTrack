@@ -6,18 +6,18 @@ using namespace std;
 
 User::User()
 {
- 
+        //default constructor
 }
 
 User::~User()
 {
-    //dtor
+    //deconstructor
 }
 
 
-User User::CreateAccount()
+User User::CreateAccount()   //function to create a new user account, interactively
 {
-    User u;
+    User u;                  //creates a new User object u
     string username;
     string password;
     string confirm_password;
@@ -42,17 +42,17 @@ User User::CreateAccount()
     u.Setusername(username);
     u.Setpassword(password);
     cout << "Account created successfully!" << endl;
-    return u;
+    return u;       //returns the newly created User object with set username and password
 }
-// Programmatic setter: update this object's credentials
-void User::EditAccount(const string& username, const string& password)
+
+void User::EditAccount(const string& username, const string& password) //function to update this object's credentials, that takes input parameters username and password
 {
     Setusername(username);
     Setpassword(password);
 }
 
-// Instance interactive edit: prompt and update this object's credentials
-void User::EditAccountInteractive()
+
+void User::EditAccountInteractive()  //function to prompt and update this object's credentials interactively
 {
     string username;
     string password;
@@ -80,10 +80,10 @@ void User::EditAccountInteractive()
     cout << "Account updated successfully!" << endl;
 }
 
-// Login: verify credentials
-bool User::Login(const string& username, const string& password)
-{
-    if (this->username == username && this->password == password)
+    
+bool User::Login(const string& username, const string& password)       //login function that checks username and password of this user object, is bool so returns true or false
+{                                                                      //uses referenced parameters to avoid copying strings
+    if (this->username == username && this->password == password)  //checks if the login attempt matches the details of this User object
     {
         cout << "Login successful! Welcome, " << username << "!" << endl;
         return true;
