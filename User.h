@@ -15,7 +15,14 @@ class User
         void Setusername(string val) { username = val; }
         string Getpassword() { return password; }
         void Setpassword(string val) { password = val; }
-
+        // Interactive factory: prompts the user and returns a new User
+        static User CreateAccount();
+        // Programmatic setter: set credentials on this object
+        void EditAccount(const string& username, const string& password);
+        // Interactive edit: prompt and update this existing User
+        void EditAccountInteractive();
+        // Login: verify username and password
+        bool Login(const string& username, const string& password);
     protected:
 
     private:
