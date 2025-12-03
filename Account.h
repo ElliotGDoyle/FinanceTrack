@@ -14,9 +14,9 @@ class Account : public User
     public:
         Account();
         void AddEntry(Entry entry);
-        int GetEntryCount() const { return static_cast<int>(entries.size()); }
-        Entry& GetEntry(size_t idx) { return entries[idx]; }
-        const Entry& GetEntry(size_t idx) const { return entries[idx]; }
+        int GetEntryCount() const;
+        Entry& GetEntry(size_t idx);
+        const Entry& GetEntry(size_t idx) const;
           
         virtual ~Account();
         void SetaccountName(string val) { accountName = val; }

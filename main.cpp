@@ -167,18 +167,18 @@ void DisplayAccountMenu(User& loggedInUser, vector<Account>& userAccounts)
             cout << "Enter account name: ";
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
             string name;
-            getline(cin, name);
+            cin >> name;
             newAccount.SetaccountName(name);
 
             userAccounts.push_back(newAccount);
             SaveAccountsForUser(loggedInUser.Getusername(), userAccounts);
-            cout << "\n\xE2\x9C\x93 New account '" << name << "' created successfully!" << endl;
+            cout << "\nNew account '" << name << "' created successfully!" << endl;
         }
         else if (choice == 2)
         {
             if (userAccounts.empty())
             {
-                cout << "\n\xE2\x9C\x97 You have no accounts. Create one first." << endl;
+                cout << "\n You have no accounts. Create one first." << endl;
                 continue;
             }
 
