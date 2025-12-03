@@ -13,8 +13,8 @@ void DisplayAccountMenu(User& loggedInUser, vector<Account>& userAccounts)      
     while (true)                                                                            //infinite loop to keep showing the menu until user logs out
     {
         cout << "\n=== Account Menu - " << loggedInUser.Getusername() << " ===" << endl;
-        cout << "1. Create new account" << endl;
-        cout << "2. Select an account" << endl;
+        cout << "1. Create a new balance account" << endl;
+        cout << "2. Select a balance account" << endl;
         cout << "3. Logout" << endl;
         cout << "Enter choice: ";
         cin >> choice;
@@ -24,30 +24,30 @@ void DisplayAccountMenu(User& loggedInUser, vector<Account>& userAccounts)      
             Account newAccount;                                                              //create a new Account object                  
             newAccount.Setuser(loggedInUser);                                                //set the user of this account to the logged in user
             newAccount.Setbalance(0);                                                        //initialize balance to zero                     
-            cout << "Enter account name: ";
+            cout << "Enter balance account name: ";
             string name;
             cin >> name;
             newAccount.SetaccountName(name);                                                 //set the account name to user input
 
             userAccounts.push_back(newAccount);                                              //add this new account to the user's list of accounts which is a vector called userAccounts        
-            cout << "\nNew account '" << name << "' created successfully!" << endl;
+            cout << "\nNew balance account '" << name << "' created successfully!" << endl;
         }
         else if (choice == 2)                                                               //if user chooses to select an existing account     
         {
             if (userAccounts.empty())                                                       //check if user has no accounts     
             {
-                cout << "\nYou have no accounts. Create one first." << endl;
+                cout << "\nYou have no balance accounts. Create one first." << endl;
                 continue;                                                                   //go back to the main account menu
             }
 
-            cout << "\n--- Your Accounts ---" << endl;                                     // otherwise list account objects
+            cout << "\n--- Your Balance Accounts ---" << endl;                                     // otherwise list account objects
             for (int i = 0; i < (int)userAccounts.size(); i++)                             //for loop that will list all accounts with index, will increment until it reaches size of userAccounts vector
             {
                 cout << (i + 1) << ". " << userAccounts[i].GetaccountName();               //prints account name
                 cout << " - Balance: $" << userAccounts[i].CalculateBalance() << endl;      //prints calculated balance of this account by summing all Entry amounts
             }
  
-            cout << "Select an account (1-" << userAccounts.size() << "): ";
+            cout << "Select a balance account (1-" << userAccounts.size() << "): ";
             int accountChoice;
             cin >> accountChoice;
 

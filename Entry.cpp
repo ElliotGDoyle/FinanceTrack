@@ -49,6 +49,9 @@ void Entry::AddEntryDetails()      //function that adds details to entry object 
          amount = abs(amount); // ensure amount is positive
     }
     
+    cin.ignore();  // clear the input buffer before reading description
+    cout<< "Enter a description for this entry: "<< endl;
+    getline(cin, description);  // use getline to allow spaces in description
 
 
 }
@@ -56,8 +59,9 @@ void Entry::AddEntryDetails()      //function that adds details to entry object 
 
 void Entry::PrintEntry(){           //function to print details of this Entry object
 
-cout<< "Cost is "<< amount << " $."<< endl;
-cout<< "Category is "<< category << " ."<< endl;
+cout<< "Description: "<< description << endl;
+cout<< "Category: "<< category << endl;
+cout<< "Amount: $"<< amount << endl;
 
 
 }
