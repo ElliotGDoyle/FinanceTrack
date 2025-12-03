@@ -17,6 +17,7 @@ class Account                               //definition of Account class which 
         int GetEntryCount() ;               //function declaration to get the number of Entry objects in the entries vector which returns an integer size       
         Entry& GetEntry(int idx);           //function declaration to get a reference to an Entry object at a specific index in the entries vector
         float CalculateBalance();           //function declaration to calculate the total balance by summing all entries
+        void GenerateReport();              //function declaration to generate a report showing all entries with total income and expenses
 
           
         ~Account();                         //deconstructor declaration

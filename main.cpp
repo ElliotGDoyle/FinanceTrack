@@ -66,7 +66,8 @@ void DisplayAccountMenu(User& loggedInUser, vector<Account>& userAccounts)      
                 cout << "1. Add entry" << endl;
                 cout << "2. Edit entry" << endl;
                 cout << "3. View entries" << endl;
-                cout << "4. Back" << endl;
+                cout << "4. Generate report" << endl;
+                cout << "5. Back" << endl;
                 cout << "Enter choice: ";
                 int achoice;            //temporary variable to hold account detail menu choice
                 cin >> achoice;
@@ -114,7 +115,11 @@ void DisplayAccountMenu(User& loggedInUser, vector<Account>& userAccounts)      
                         acc.GetEntry(j).PrintEntry();           //calls PrintEntry function on each Entry object to print its details
                     }
                 }
-                else if (achoice == 4)                  //back to account menu
+                else if (achoice == 4)                  //generate report
+                {
+                    acc.GenerateReport();               //calls GenerateReport function to display comprehensive account report
+                }
+                else if (achoice == 5)                  //back to account menu
                 {
                     break;                             //breaks out of the account detail menu loop and returns to the main account menu
                 }

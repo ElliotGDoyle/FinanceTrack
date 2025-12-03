@@ -36,3 +36,41 @@ float Account::CalculateBalance()          //function to calculate the total bal
     }
     return totalBalance;                     //returns the final calculated total balance
 }
+
+void Account::GenerateReport()              //function to generate a comprehensive report of all entries with income and expense totals
+{
+    if (entries.empty())                    //check if there are no entries
+    {
+        cout << "\nNo entries to report." << endl;
+        return;
+    }
+
+    float totalIncome = 0.0f;               //variable to track total income
+    float totalExpense = 0.0f;              //variable to track total expenses
+
+    cout << "\n========================================" << endl;
+    cout << "       ACCOUNT REPORT: " << accountName << endl;
+    cout << "========================================" << endl;
+
+    for (int i = 0; i < entries.size(); i++)    //loop through all entries
+    {
+        cout << "\nEntry #" << (i + 1) << ":" << endl;
+        entries[i].PrintEntry();                //print each entry details
+        
+        if (entries[i].Getamount() >= 0)        //if amount is positive, it's income
+        {
+            totalIncome += entries[i].Getamount();
+        }
+        else                                    //if amount is negative, it's expense
+        {
+            totalExpense += entries[i].Getamount();
+        }
+    }
+
+    cout << "\n========================================" << endl;
+    cout << "SUMMARY:" << endl;
+    cout << "Total Income:  $" << totalIncome << endl;
+    cout << "Total Expense: $" << totalExpense << endl;
+    cout << "Net Balance:   $" << (totalIncome + totalExpense) << endl;
+    cout << "========================================\n" << endl;
+}
